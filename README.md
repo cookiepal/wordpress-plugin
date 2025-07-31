@@ -39,7 +39,29 @@ A lightweight WordPress plugin that injects the CookiePal consent banner script 
    <!-- Replace with your actual screenshot URL -->
    </details>
 
-**What happens next?**  
-On the front end, if a valid Website ID is set, the plugin will automatically enqueue:
-```html
-<script src="https://dev-cdn.cookiepal.io/client_data/YOUR_WEBSITE_ID/script.js?source=wordpress"></script>
+## How It Works
+
+1. **Front-end Script Injection**  
+   When you set a valid Website ID, the plugin enqueues:
+   ```html
+   <script src="https://dev-cdn.cookiepal.io/client_data/YOUR_WEBSITE_ID/script.js?source=wordpress"></script>
+   ```
+   just before the closing `</head>` tag.
+
+2. **Consent Bridge**
+   The plugin also includes a local file [assets/script.js](./assets/script.js) which contains the `initWordPressConsentBridge()` function. This script is loaded automatically (via the CDN script’s callback) to:
+
+   * Listen for `cookiepal_consent_update` and `cookiepal_banner_load` events
+   * Map CookiePal categories (`analytics`, `advertisement`, `functional`) to WP Consent API categories (`statistics`, `marketing`, `preferences`)
+   * Define the consent type once (`optin`) and push allow/deny updates to:
+
+     ```js
+     window.wp_set_consent(apiCategory, allowed ? 'allow' : 'deny');
+     ```
+   * Sync any already-stored consent state on page load.
+
+3. **Automatic Sync on Load**
+   On `window.load` (or immediately if the page is already loaded), `initWordPressConsentBridge()` runs and ensures your WordPress site’s consent records match what the user selected in CookiePal.
+
+> Built with ❤️ by CookiePal
+

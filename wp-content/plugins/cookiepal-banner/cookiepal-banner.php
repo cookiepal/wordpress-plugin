@@ -130,3 +130,4 @@ function cookiepal_enqueue_frontend_scripts()
     );
 }
 add_action('wp_enqueue_scripts', 'cookiepal_enqueue_frontend_scripts');
+add_filter( 'wp_consent_api_registered_' . plugin_basename( __FILE__ ), '__return_true' );

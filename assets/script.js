@@ -6,7 +6,8 @@ export default function initWordPressConsentBridge() {
         return () => {
             if (done) return;
             done = true;
-            window.wp_set_consent_type?.('optin');
+            window.wp_consent_type = 'optin';
+            document.dispatchEvent(new CustomEvent('wp_consent_type_defined'));
         };
     })();
 
@@ -31,6 +32,10 @@ export default function initWordPressConsentBridge() {
                 window.wp_set_consent(apiCat, allowed ? 'allow' : 'deny');
             }
         });
+
+        document.dispatchEvent(
+            new CustomEvent('wp_listen_for_consent_change', { detail: categories })
+        );
     };
 
     const syncExistingConsent = () => {

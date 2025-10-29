@@ -63,5 +63,7 @@ A lightweight WordPress plugin that injects the CookiePal consent banner script 
 3. **Automatic Sync on Load**
    On `window.load` (or immediately if the page is already loaded), `initWordPressConsentBridge()` runs and ensures your WordPress site’s consent records match what the user selected in CookiePal.
 
-> Built with ❤️ by CookiePal
 
+## Demo Video
+
+A walkthrough video of the plugin functionality: [CookiePal Banner Demo](https://www.youtube.com/watch?v=5SrqRVlG1W4) 

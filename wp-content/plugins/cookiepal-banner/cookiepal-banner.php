@@ -2,7 +2,7 @@
 /*
 Plugin Name: CookiePal Banner
 Description: Adds the CookiePal banner script to the site header for GDPR, LGPD, and privacy compliance workflows. Allows the client to input their Website ID.
-Version: 1.1
+Version: 1.3
 Author: CookiePal
 Requires Plugins: wp-consent-api
 License: AGPLv3

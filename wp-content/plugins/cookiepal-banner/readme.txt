@@ -3,7 +3,7 @@ Contributors: cookiepal
 Tags: cookies, consent, gdpr, lgpd, ccpa
 Requires at least: 5.0
 Tested up to: 6.6
-Stable tag: 1.1
+Stable tag: 1.4
 Requires PHP: 7.0
 License: AGPLv3
 License URI: https://www.gnu.org/licenses/agpl-3.0.html
@@ -78,6 +78,9 @@ No, the CookiePal script is loaded asynchronously, ensuring minimal impact on yo
 If the WP Consent API plugin is not installed or active, CookiePal Banner will not initialize and will display an admin notice prompting you to install it.
 
 == Changelog ==
+
+= 1.4 =
+* Updated compliance wording and release metadata for GDPR, LGPD, and CCPA.
 
 = 1.1 =
 * Initial public release.

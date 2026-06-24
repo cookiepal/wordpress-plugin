@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CookiePal Banner
-Description: Adds the CookiePal banner script to the site header. Allows the client to input their Website ID.
+Description: Adds the CookiePal banner script to the site header for GDPR, LGPD, and privacy compliance workflows. Allows the client to input their Website ID.
 Version: 1.1
 Author: CookiePal
 Requires Plugins: wp-consent-api
@@ -83,7 +83,7 @@ function cookiepal_website_id_render()
     ?>
     <input type="text" name="cookiepal_website_id"
         value="<?php echo isset($website_id) ? esc_attr($website_id) : ''; ?>" class="cookiepal-input">
-    <p class="description">Enter your CookiePal Website ID.</p>
+    <p class="description">Enter your CookiePal Website ID to load your GDPR and LGPD consent banner configuration.</p>
     <?php
 }
 

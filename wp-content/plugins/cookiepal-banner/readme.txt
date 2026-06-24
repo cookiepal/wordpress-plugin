@@ -1,18 +1,18 @@
 === CookiePal Banner ===
 Contributors: cookiepal
-Tags: cookies, consent, gdpr
+Tags: cookies, consent, gdpr, lgpd, ccpa
 Requires at least: 5.0
 Tested up to: 6.6
-Stable tag: 1.1
+Stable tag: 1.4
 Requires PHP: 7.0
 License: AGPLv3
 License URI: https://www.gnu.org/licenses/agpl-3.0.html
 
-Add a custom consent banner to your WordPress site for privacy compliance. Easily stay compliant with CookiePal in just a few clicks!
+Add a custom consent banner to your WordPress site for GDPR, LGPD, CCPA, and privacy compliance. Easily manage compliance with CookiePal in just a few clicks!
 
 == Description ==
 
-Welcome to **CookiePal Banner**, a WordPress plugin designed to easily add the CookiePal cookie consent banner to your website. This plugin allows administrators to input their CookiePal Website ID, enabling users to manage their consent preferences and comply with privacy regulations seamlessly.
+Welcome to **CookiePal Banner**, a WordPress plugin designed to easily add the CookiePal cookie consent banner to your website. This plugin allows administrators to input their CookiePal Website ID, enabling users to manage their consent preferences for GDPR, LGPD, CCPA, and other privacy regulations seamlessly.
 
 *This plugin requires a CookiePal account and an active Website ID, which you can obtain from your CookiePal dashboard. Ensure your account is configured for proper functionality.*
 
@@ -26,13 +26,14 @@ For more details, refer to:
 - [CookiePal Privacy Policy](https://app.cookiepal.io/privacy-policy/cookiepal.io)
 - [CookiePal Terms of Use](https://app.cookiepal.io/terms-and-conditions)
 
-These disclosures help ensure that users are aware of where data is sent and are informed of data transmission requirements under privacy laws.
+These disclosures help ensure that users are aware of where data is sent and are informed of data transmission requirements under GDPR, LGPD, CCPA, and other privacy laws.
 
 == Features ==
 
 - Automatically adds the CookiePal consent banner to your website's header.
 - Simple setup through a user-friendly settings page in the WordPress admin dashboard.
 - Allows you to input your CookiePal Website ID and dynamically load the banner script.
+- Helps highlight GDPR, LGPD, and CCPA consent management workflows powered by CookiePal.
 
 == Installation ==
 
@@ -78,10 +79,13 @@ If the WP Consent API plugin is not installed or active, CookiePal Banner will n
 
 == Changelog ==
 
+= 1.4 =
+* Updated compliance wording and release metadata for GDPR, LGPD, and CCPA.
+
 = 1.1 =
 * Initial public release.
 * Requires [WP Consent API](https://wordpress.org/plugins/wp-consent-api/).
-* Integrates with the WordPress consent system for GDPR compliance.
+* Integrates with the WordPress consent system for GDPR, LGPD, and CCPA compliance workflows.
 
 == License ==
 

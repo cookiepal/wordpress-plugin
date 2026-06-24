@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: CookiePal Banner
-Description: Adds the CookiePal banner script to the site header. Allows the client to input their Website ID.
-Version: 1.1
+Description: Adds the CookiePal banner script to the site header for GDPR, LGPD, and privacy compliance workflows. Allows the client to input their Website ID.
+Version: 1.4
 Author: CookiePal
 Requires Plugins: wp-consent-api
 License: AGPLv3
@@ -83,7 +83,7 @@ function cookiepal_website_id_render()
     ?>
     <input type="text" name="cookiepal_website_id"
         value="<?php echo isset($website_id) ? esc_attr($website_id) : ''; ?>" class="cookiepal-input">
-    <p class="description">Enter your CookiePal Website ID.</p>
+    <p class="description">Enter your CookiePal Website ID to load your GDPR and LGPD consent banner configuration.</p>
     <?php
 }
 
@@ -108,10 +108,10 @@ function cookiepal_options_page()
 }
 
 /* ------------------------------------------------------------------------- */
-/* Front‑end – banner script */
+/* Front-end – banner script */
 /* ------------------------------------------------------------------------- */
 
-function cookiepal_enqueue_frontend_scripts()
+function cookiepal_print_banner_script()
 {
     $website_id = get_option('cookiepal_website_id');
     if (empty($website_id)) {
@@ -119,15 +119,9 @@ function cookiepal_enqueue_frontend_scripts()
     }
 
     $source_flag = 'wordpress';
-    $script_url = 'https://dev-cdn.cookiepal.io/client_data/' . esc_attr($website_id) . '/script.js?source=' . esc_attr($source_flag);
+    $script_url = 'https://cdn.cookiepal.io/client_data/' . esc_attr($website_id) . '/script.js?source=' . esc_attr($source_flag);
 
-    wp_enqueue_script(
-        'cookiepal-banner-script',
-        $script_url,
-        array(),
-        '1.0.0',
-        false
-    );
+    echo '<script src="' . esc_url($script_url) . '" type="text/javascript"></script>' . "\n";
 }
-add_action('wp_enqueue_scripts', 'cookiepal_enqueue_frontend_scripts');
+add_action('wp_head', 'cookiepal_print_banner_script', 0);
 add_filter( 'wp_consent_api_registered_' . plugin_basename( __FILE__ ), '__return_true' );
